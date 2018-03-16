@@ -20,9 +20,9 @@ $ yarn add pqml/hmr-loader --dev # width yarn
 
 ## Usage
 
-** :warning: Specify `hmr` to each import statement your want to add hot realoding. **
+:warning: Specify `hmr` to each import statement your want to add hot realoding.
 
-** :warning: `hmr-loader` doesn't work when specified in a webpack config file. **
+:warning: `hmr-loader` doesn't work when specified in a webpack config file.
 
 <br>
 
