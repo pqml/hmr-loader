@@ -9,15 +9,20 @@ Webpack loader that add a hmr method to your module
 
 <br><br>
 
-## Installation & Usage
+## Installation 
+
+```sh
+$ npm install pqml/hmr-loader -S # with npm
+$ yarn add pqml/hmr-loader --dev # width yarn
+```
+
+<br><br>
+
+## Usage
 
 ** :warning: Specify `hmr` to each import statement your want to add hot realoding. **
 
 ** :warning: `hmr-loader` doesn't work when specified in a webpack config file. **
-
-```sh
-
-```
 
 <br>
 
