@@ -9,7 +9,7 @@ Webpack loader that add a hmr method to your module
 
 <br><br>
 
-## Installation 
+## Installation
 
 ```sh
 $ npm install pqml/hmr-loader -S # with npm
