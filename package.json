@@ -1,0 +1,25 @@
+{
+  "name": "hmr",
+  "version": "0.0.1",
+  "description": "Webpack loader that add a hmr method to your module",
+  "main": "hmr.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pqml/hmr-loader.git"
+  },
+  "keywords": [
+    "webpack",
+    "loader",
+    "hmr",
+    "hot"
+  ],
+  "author": "pqml",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pqml/hmr-loader/issues"
+  },
+  "homepage": "https://github.com/pqml/hmr-loader#readme"
+}
