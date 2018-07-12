@@ -22,7 +22,7 @@ function (cb) {
   return (`
 var moduleInstance = require(${moduleRequest});
 var moduleId = require.resolve(${moduleRequest});
-console.log(moduleInstance)
+
 if (moduleInstance.__esModule) moduleInstance = moduleInstance.default;
 if (typeof moduleInstance === 'function' || typeof moduleInstance === 'object') {
   moduleInstance.hmr = ${hotCode}
