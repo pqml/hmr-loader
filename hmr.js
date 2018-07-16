@@ -9,24 +9,25 @@ module.exports.pitch = function hotLoader (remainingRequest, preReq, data) {
     .join('!'))
 
   return (`
-var moduleInstance = require(${moduleRequest});
-if (moduleInstance.__esModule) moduleInstance = moduleInstance.default;
 var moduleId = require.resolve(${moduleRequest});
+
 var watchers = [];
 var i = 0;
 var l = 0;
 
 var api = {
   __hmr: true,
-  id: ${moduleId},
-  module: moduleInstance,
+  id: moduleId,
+  module: require(${moduleRequest}),
   watch: watch,
   unwatch: unwatch,
 };
 
+if (api.module.__esModule) api.module = api.module.default;
+
 if (module.hot) {
   module.hot.accept([moduleId], function() {
-    var api.module = require(${moduleRequest});
+    api.module = require(${moduleRequest});
     if (api.module.__esModule) api.module = api.module.default;
     for (i = 0, l = watchers.length; i < watchers.length; i++) watchers[i](api.module)
   });
