@@ -13,23 +13,23 @@ Webpack loader that add a hmr method to your module
 ## Installation
 
 ```sh
-$ npm install @pqml/hmr-loader -S # with npm
-$ yarn add @pqml/hmr-loader --dev # with yarn
+$ npm install @internet/hmr-loader -S # with npm
+$ yarn add @internet/hmr-loader --dev # with yarn
 ```
 
 <br><br>
 
 ## Usage
 
-:warning: Specify `@pqml/hmr` to each import statement your want to add hot reloading.
+:warning: Specify `@internet/hmr` to each import statement your want to add hot reloading.
 
 :warning: `hmr-loader` doesn't work when specified in a webpack config file.
 
 <br>
 
 ```js
-import Module from '@pqml/hmr!./module-object'
-import string from '@pqml/hmr!./module-string'
+import Module from '@internet/hmr!./module-object'
+import string from '@internet/hmr!./module-string'
 
 // Return true - you can use it to check if the module is wrapped inside the hmr module
 Module.__hmr
