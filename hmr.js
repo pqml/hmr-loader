@@ -8,27 +8,42 @@ module.exports.pitch = function hotLoader (remainingRequest, preReq, data) {
     .filter(mod => mod.split('?')[0] !== __filename)
     .join('!'))
 
-  const hotCode = (`
-function (cb) {
-  if (module.hot) {
-    module.hot.accept([moduleId], function() {
-      var newInstance = require(${moduleRequest});
-      if (newInstance.__esModule) newInstance = newInstance.default;
-      cb && cb(newInstance);
-    });
-  }
-}`)
-
   return (`
 var moduleInstance = require(${moduleRequest});
-var moduleId = require.resolve(${moduleRequest});
-
 if (moduleInstance.__esModule) moduleInstance = moduleInstance.default;
-if (typeof moduleInstance === 'function' || typeof moduleInstance === 'object') {
-  moduleInstance.hmr = ${hotCode}
-} else {
-  moduleInstance = { value: moduleInstance, hmr: ${hotCode} }
+var moduleId = require.resolve(${moduleRequest});
+var watchers = [];
+var i = 0;
+var l = 0;
+
+var api = {
+  __hmr: true,
+  id: ${moduleId},
+  module: moduleInstance,
+  watch: watch,
+  unwatch: unwatch,
+};
+
+if (module.hot) {
+  module.hot.accept([moduleId], function() {
+    var api.module = require(${moduleRequest});
+    if (api.module.__esModule) api.module = api.module.default;
+    for (i = 0, l = watchers.length; i < watchers.length; i++) watchers[i](api.module)
+  });
 }
-module.exports = moduleInstance;
+
+function watch (cb) {
+  watchers.push(cb)
+}
+
+function unwatch (cb) {
+  var aliveWatchers = [];
+  for (i = 0, l = watchers.length; i < watchers.length; i++) {
+    if (watchers[i] !== cb) aliveWatchers.push(watchers[i]);
+  }
+  watchers = aliveWatchers;
+}
+
+module.exports = api;
 `)
 }

@@ -1,5 +1,5 @@
 {
-  "name": "hmr",
+  "name": "@pqml/hmr",
   "version": "0.0.1",
   "description": "Webpack loader that add a hmr method to your module",
   "main": "hmr.js",
