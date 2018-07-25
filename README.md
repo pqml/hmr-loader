@@ -13,8 +13,8 @@ Webpack loader that add a hmr method to your module
 ## Installation
 
 ```sh
-$ npm install @internet/hmr-loader -S # with npm
-$ yarn add @internet/hmr-loader --dev # with yarn
+$ npm install @internet/hmr -S # with npm
+$ yarn add @internet/hmr --dev # with yarn
 ```
 
 <br><br>
@@ -55,3 +55,14 @@ function onReload (newValue) {}
 ## Requirements
 - Node >= 8
 - Webpack >= 3
+
+<br><br>
+
+## License
+[MIT.](LICENSE)
+
+<br><br>
+
+<i>`hmr-loader` is a package of the [@internet](https://www.npmjs.com/org/internet) npm scope. </i>
+
+_[@internet](https://www.npmjs.com/org/internet) is a collection of opinionated and interoperables front-end npm ES6 modules, with minimal external dependencies._
